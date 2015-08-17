@@ -27,7 +27,11 @@ module Addressabler
     end
 
     def subdomain=(new_subdomain)
-      self.host = "#{new_subdomain}.#{domain}.#{tld}"
+      if new_subdomain
+        self.host = "#{new_subdomain}.#{domain}.#{tld}"
+      else
+        self.host = "#{domain}.#{tld}"
+      end
     end
 
     def tld
